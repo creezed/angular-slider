@@ -1,0 +1,28 @@
+<picture class="relative block w-full h-50vh border-round-2xl overflow-hidden">
+  <ng-container *ngFor="let slide of slides; let i = index">
+    <img
+      *ngIf="i === currentSlide"
+      [src]="slide.src"
+      class="slide w-full h-full block absolute top-0 left-0 border-round-2xl"
+      @carouselAnimation
+    />
+  </ng-container>
+</picture>
+<div class="lg:flex-row flex flex-column gap-2 w-full">
+  <p-button
+    label="Предыдущий"
+    icon="pi pi-arrow-left"
+    iconPos="left"
+    styleClass="p-button-warning w-full"
+    class="w-full"
+    (click)="onPreviousClick()"
+  ></p-button>
+  <p-button
+    label="Следующий"
+    icon="pi pi-arrow-right"
+    iconPos="right"
+    styleClass="p-button-help w-full"
+    class="w-full"
+    (click)="onNextClick()"
+  ></p-button>
+</div>
